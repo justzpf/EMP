@@ -1,0 +1,18 @@
+{
+  "name": "EchoMusic 插件源",
+  "homepage": "https://github.com/justzpf/EchoMusicPlugins",
+  "plugins": [
+    {
+      "id": "kugou-vip",
+      "path": "kugou-vip",
+      "homepage": "https://github.com/justzpf/EchoMusicPlugins/tree/main/kugou-vip",
+      "tags": ["kugou", "vip"]
+    },
+    {
+      "id": "music-downloader",
+      "path": "music-downloader",
+      "homepage": "https://github.com/justzpf/EchoMusicPlugins/tree/main/music-downloader",
+      "tags": ["kugou", "download"]
+    }
+  ]
+}

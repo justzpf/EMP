@@ -1,0 +1,16 @@
+{
+  "id": "music-downloader",
+  "name": "音乐下载",
+  "version": "0.1.0",
+  "description": "从酷狗下载音乐到本地（单曲下载 / 任务中心 / 目录授权）",
+  "author": "EchoMusic AI开发者",
+  "icon": "icon.svg",
+  "main": "index.js",
+  "style": "style.css",
+  "capabilities": {
+    "localFiles": true,
+    "downloads": true,
+    "kugouApi": true,
+    "kugouVerification": true
+  }
+}

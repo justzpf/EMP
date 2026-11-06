@@ -1,0 +1,166 @@
+/* EchoMusic 每日领 VIP 插件 — 设置面板（补充样式，非依赖项）
+ * ⚠️ 实测结论（参考 music-downloader）：外部 style.css 的 class 选择器在宿主设置面板作用域内不生效。
+ * 实际生效的视觉契约全部经 ctx.css.inject 运行时全局注入（index.js SETTINGS_CSS，
+ * 参考 music-downloader 设置面板视觉语言：概览卡 + 分组面板 + 字段行 + 状态胶囊）。
+ * 本文件仅与注入 CSS 保持一致的同构规则，供未来复用参考，不参与视觉契约。
+ * 全部规则限定 kvip- 前缀，不污染宿主；取色用宿主变量 + 兜底。 */
+
+.kvip-settings {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+  color: var(--color-text-main, var(--text-main, #1d1d1f));
+}
+
+.kvip-settings__overview {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--border-subtle, rgba(127, 127, 127, 0.16));
+  border-radius: 16px;
+  background: var(--color-bg-elevated, var(--surface-card-base, #fff));
+  padding: 14px;
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--color-text-main, #1d1d1f) 3%, transparent);
+}
+
+.kvip-settings__mark {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.kvip-settings__copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.kvip-settings__copy h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-main, var(--text-main, #1d1d1f));
+}
+
+.kvip-settings__copy p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-text-secondary, var(--text-secondary, #6b7280));
+}
+
+.kvip-settings__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--control-border, rgba(127, 127, 127, 0.24));
+  background: var(--control-muted-bg, rgba(127, 127, 127, 0.08));
+  font-size: 11px;
+  font-weight: 650;
+  color: var(--color-text-secondary, var(--text-secondary, #6b7280));
+  white-space: nowrap;
+}
+
+.kvip-settings__pill i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.kvip-settings__pill.is-done {
+  color: #10b981;
+  background: color-mix(in srgb, #10b981 12%, transparent);
+  border-color: color-mix(in srgb, #10b981 30%, transparent);
+}
+
+.kvip-settings__panel {
+  display: grid;
+  border: 1px solid var(--border-subtle, rgba(127, 127, 127, 0.16));
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--color-bg-elevated, var(--surface-card-base, #fff));
+  box-shadow: 0 2px 12px color-mix(in srgb, var(--color-text-main, #1d1d1f) 3%, transparent);
+}
+
+.kvip-settings__section-heading {
+  display: grid;
+  gap: 3px;
+  padding: 15px 18px 12px;
+}
+
+.kvip-settings__section-heading h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-main, var(--text-main, #1d1d1f));
+}
+
+.kvip-settings__section-heading p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--color-text-secondary, var(--text-secondary, #6b7280));
+}
+
+.kvip-settings__section-body {
+  display: grid;
+  min-width: 0;
+}
+
+.kvip-settings__field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 250px);
+  align-items: center;
+  gap: 24px;
+  min-width: 0;
+  min-height: 58px;
+  padding: 10px 18px;
+}
+
+.kvip-settings__field--switch {
+  /* Switch 字段：控件列 auto，Switch 贴行右缘（与 Select/Button 右缘对齐） */
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+
+.kvip-settings__field--info {
+  /* 信息行：仅文案，无控件列，紧凑行高（运行状态分组用） */
+  grid-template-columns: minmax(0, 1fr);
+  min-height: 0;
+  padding: 6px 18px;
+}
+
+.kvip-settings__field + .kvip-settings__field {
+  border-top: 1px solid color-mix(in srgb, var(--color-text-main, #1d1d1f) 12%, transparent);
+}
+
+.kvip-settings__field-copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.kvip-settings__field-copy strong {
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--color-text-main, var(--text-main, #1d1d1f));
+}
+
+.kvip-settings__field-copy small {
+  font-size: 12px;
+  color: var(--color-text-secondary, var(--text-secondary, #6b7280));
+  overflow-wrap: anywhere;
+}
+
+.kvip-settings__select {
+  width: 100%;
+  min-width: 0;
+  justify-content: space-between;
+}
+
+.kvip-settings__actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
